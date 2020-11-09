@@ -3,70 +3,27 @@ A collection of small, useful python programs I've written over the years.
 
 
 
+# File                             |   Progress                                                              |  Reliability
+-----------------------------------|-------------------------------------------------------------------------|------------------------------------------------------
+appendFile.py                      |   I think it works?                                                     |  Not to reliable
+define.py                          |   Pretty much finished                                                  |  Pretty reliable
+eyeglassesconverter.py             |   I don't remember. I don't think it works.                             |  Not at all
+balanceChemicalEquationChempy.py   |   Still plenty of bugs, but the hard part is finished                   |  Not a ton, but if it does work, it should be correct
+getRandomWord.py                   |   Mostly finished.                                                      |  Mostly reliable
+minecraft miner.py                 |   Could use some editing, but to go much further, would be really hard  |  Fairly reliable, once it works
+minecraft mineSwath.py             |   Could use some editing, but to go much further, would be really hard  |  Fairly reliable, once it works
+minecraft treecapitator.py         |   Could use some editing, but to go much further, would be really hard  |  Pretty reliable, once it works
+regex_a_file.py                    |   Far from done.                                                        |  Not reliable at all
+getQuote.py                        |   Pretty much done.                                                     |  Very reliable.
+monitorKeyboard- boilerplate.py    |   I don't remember. Probably works, but isn't glamorous                 |  Reliable enough.
+minecraft copy coords - simple.py  |   Since this is intended to be simple, it's pretty much done.           |  Very reliable
+minecraftAutocopyV2.py             |   Doesn't work, tons of bugs, and it really needs to be overhauled      |  Not reliable at all
+convertToBinary.py                 |   Doesn't work, but I'm currently working on it. Will work soon         |  Not reliable yet
+argparse boilderplate.py           |   Done.                                                                 |  Perfectly reliable
+apod.py                            |   Done. If you think of any features to add, let me know                |  Very very reliable
+CommonUsefulFunctions.py           |   Could use some touch ups                                              |  Mostly reliable
+getPoemOfTheDay.py                 |   Unfinished. Doesn't work yet.                                         |  Not reliable at all
 
-\documentclass{article}
-
-\begin{document}
-
-\begin{table}[h!]
-  \begin{center}
-    <!-- \caption{Your first table.} -->
-    <!-- \label{tab:table1} -->
-    \begin{tabular}{l|c|r} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
-      \textbf{File} & \textbf{Progress} & \textbf{Reliability}\\
-      <!-- $\alpha$ & $\beta$ & $\gamma$ \\ -->
-      \hline
-      appendFile.py                     & I think it works?                                                    & Not to reliable\\
-      define.py                         & Pretty much finished                                                 & Pretty reliable\\
-      eyeglassesconverter.py            & I don't remember. I don't think it works.                            & Not at all\\
-      balanceChemicalEquationChempy.py  & Still plenty of bugs, but the hard part is finished                  & Not a ton, but if it does work, it should be correct\\
-      getRandomWord.py                  & Mostly finished.                                                     & Mostly reliable\\
-      minecraft miner.py                & Could use some editing, but to go much further, would be really hard & Fairly reliable, once it works\\
-      minecraft mineSwath.py            & Could use some editing, but to go much further, would be really hard & Fairly reliable, once it works\\
-      minecraft treecapitator.py        & Could use some editing, but to go much further, would be really hard & Pretty reliable, once it works\\
-      regex_a_file.py                   & Far from done.                                                       & Not reliable at all\\
-      getQuote.py                       & Pretty much done.                                                    & Very reliable.\\
-      monitorKeyboard- boilerplate.py   & I don't remember. Probably works, but isn't glamorous                & Reliable enough.\\
-      minecraft copy coords - simple.py & Since this is intended to be simple, it's pretty much done.          & Very reliable\\
-      minecraftAutocopyV2.py            & Doesn't work, tons of bugs, and it really needs to be overhauled     & Not reliable at all\\
-      convertToBinary.py                & Doesn't work, but I'm currently working on it. Will work soon        & Not reliable yet\\
-      argparse boilderplate.py          & Done.                                                                & Perfectly reliable\\
-      apod.py                           & Done. If you think of any features to add, let me know               & Very very reliable\\
-      CommonUsefulFunctions.py          & Could use some touch ups                                             & Mostly reliable\\
-      getPoemOfTheDay.py                & Unfinished. Doesn't work yet.                                        & Not reliable at all\\
-    \end{tabular}
-  \end{center}
-\end{table}
-
-\end{document}
-
-
-
-
-
-<!-- 
-# File                                     Progress                                                                 Reliability\\
-
-appendFile.py                     & I think it works?                                                    & Not to reliable\\
-define.py                         & Pretty much finished                                                 & Pretty reliable\\
-eyeglassesconverter.py            & I don't remember. I don't think it works.                            & Not at all\\
-balanceChemicalEquationChempy.py  & Still plenty of bugs, but the hard part is finished                  & Not a ton, but if it does work, it should be correct\\
-getRandomWord.py                  & Mostly finished.                                                     & Mostly reliable\\
-minecraft miner.py                & Could use some editing, but to go much further, would be really hard & Fairly reliable, once it works\\
-minecraft mineSwath.py            & Could use some editing, but to go much further, would be really hard & Fairly reliable, once it works\\
-minecraft treecapitator.py        & Could use some editing, but to go much further, would be really hard & Pretty reliable, once it works\\
-regex_a_file.py                   & Far from done.                                                       & Not reliable at all\\
-getQuote.py                       & Pretty much done.                                                    & Very reliable.\\
-monitorKeyboard- boilerplate.py   & I don't remember. Probably works, but isn't glamorous                & Reliable enough.\\
-minecraft copy coords - simple.py & Since this is intended to be simple, it's pretty much done.          & Very reliable\\
-minecraftAutocopyV2.py            & Doesn't work, tons of bugs, and it really needs to be overhauled     & Not reliable at all\\
-convertToBinary.py                & Doesn't work, but I'm currently working on it. Will work soon        & Not reliable yet\\
-argparse boilderplate.py          & Done.                                                                & Perfectly reliable\\
-apod.py                           & Done. If you think of any features to add, let me know               & Very very reliable\\
-CommonUsefulFunctions.py          & Could use some touch ups                                             & Mostly reliable\\
-getPoemOfTheDay.py                & Unfinished. Doesn't work yet.                                        & Not reliable at all
-
- -->
 
 # appendFile.py
 This is meant primarily meant to be used in the command line with a pipe to append data to the end of a file. I figure there's probably already a way to do this, but hey, this works.
