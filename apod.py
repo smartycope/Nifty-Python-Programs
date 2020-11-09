@@ -1,21 +1,15 @@
-import requests, re, os, sys
-from urllib.request import urlopen
-from urllib.parse import urlparse
-from bs4 import BeautifulSoup
+#!/usr/bin/python
+
 from CommonUsefulFunctions import TerminalColors
-import requests, re, os
+import requests, re, os, sys, argparse
 from urllib.request import urlopen
-from urllib.parse import urlparse
-# from bs4 import BeautifulSoup
+from urllib.parse import urlparse, urljoin
 from tqdm import tqdm
 from bs4 import BeautifulSoup as bs
-from urllib.parse import urljoin, urlparse
-
-import argparse
 
 savePath    = '/home/copeland/Documents/Space pictures'
 url         = "https://apod.nasa.gov/apod/astropix.html"
-soup        = BeautifulSoup(urlopen(url).read(), 'lxml')
+soup        = bs(urlopen(url).read(), 'lxml')
 description = 'A command line program for the Astronomy Picture of the Day'
 
 parser = argparse.ArgumentParser(description=description)

@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import argparse, math
 
 description = 'A helpful tool to visualize number of different bases'
