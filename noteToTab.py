@@ -1,7 +1,5 @@
 inNotes = input('Enter space-seperated notes in the form "G2 C3# A1b":\n')
 
-inNotes = 'E2 f2 f2# g2 a2b A2 b2b b2 c3 c3# d3'
-
 notes = inNotes.split(' ')
 
 songLen = (len(notes) * 2) + 5
