@@ -374,7 +374,11 @@ def getFretNum(Note:str):
 
 def printStrings():
     print()
+<<<<<<< HEAD
     for i in reversed(liststrings.keys())):
+=======
+    for i in reversed(strings.keys()):
+>>>>>>> 01ec8c6b9f04f1b3493592d0b78c7e32064ca9ed
         print(i, ' |-', sep='', end='')
 
         for k in strings[i]:
@@ -410,4 +414,7 @@ for pos, note in enumerate(notes):
 
 
 printStrings()
+<<<<<<< HEAD
 """
+=======
+>>>>>>> 01ec8c6b9f04f1b3493592d0b78c7e32064ca9ed
