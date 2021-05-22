@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-# For adding colors to the description
-from CommonUsefulFunctions import TerminalColors
 import requests, re, os, sys, argparse
 
 # For getting the image and the description
@@ -11,9 +9,14 @@ from urllib.error import URLError
 from bs4 import BeautifulSoup as bs
 
 # For the progress bar
-from tqdm import tqdm
+DO_PROGRESS_BAR = True
+try:
+    from tqdm import tqdm
+except ImportError:
+    DO_PROGRESS_BAR = False
 
 # For displaying the image
+DO_IMAGE = True
 try:
     import tkinter as tk
     from PIL import ImageTk, Image
@@ -198,11 +201,11 @@ if __name__ == "__main__":
         print('Saved!')
 
     if args.command.lower() in ['description', 'd'] or args.description is None:
-        if not args.no_colors: print(TerminalColors.CYAN)
+        if not args.no_colors: print(u"\033[0;36m") # Cyan
         print(center(getTitle()))
-        if not args.no_colors: print(TerminalColors.BLUE, end='')
+        if not args.no_colors: print(u"\033[0;34m", end='') # Blue
         print(addLines(getDescription(), os.get_terminal_size().columns - 5))
-        if not args.no_colors: print(TerminalColors.RESET)
+        if not args.no_colors: print(u"\033[0m") # Reset
 
     if args.command.lower() in ['show', 'display', 'sh'] or args.show:
         displayImage(url, not args.no_progress_bar)
