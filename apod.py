@@ -14,9 +14,12 @@ from bs4 import BeautifulSoup as bs
 from tqdm import tqdm
 
 # For displaying the image
-import tkinter as tk
-from PIL import ImageTk, Image
-from io import BytesIO
+try:
+    import tkinter as tk
+    from PIL import ImageTk, Image
+    from io import BytesIO
+except ImportError:
+    DO_IMAGE = False
 
 
 savePath    = '/home/marvin/Media/Pictures/Space Pictures'
