@@ -56,14 +56,18 @@ class EasyRegex:
         return str(self)
 
     def correctInput(self, i):
-        i = str(i)
+        # If it's another chain, we've already corrected the input
+        if type(i) is EasyRegex:
+            return str(i)
         # i = re.sub(r'\\', r'\\', i)
         # i = re.sub(r'\((?<!\\)', r'\(', i)
         i = re.sub(r'(?<!\\)\)', r'\)', i)
+        i = re.sub(r'(?<!\\)\(', r'\(', i)
         i = re.sub(r'(?<!\\)\[', r'\[', i)
         i = re.sub(r'(?<!\\)\]', r'\]', i)
         i = re.sub(r'(?<!\\)\{', r'\{', i)
         i = re.sub(r'(?<!\\)\}', r'\}', i)
+        # i = re.sub(r'(?<!/)/', r'//', i)
         return i
 
     def wordStartsWith(self, group):
@@ -94,29 +98,41 @@ class EasyRegex:
     def isExactly(self, group):
         group = self.correctInput(group)
         self.regexpr += "^" + group + '$'
-
-    def optional(self):
-        self.regexpr += r'?'
         return self
 
-    def multiOptional(self):
-        self.regexpr += r'*'
+    def optional(self, group=''):
+        group = self.correctInput(group)
+        self.regexpr += ('' if not len(group) else '(' + group + ')') + r'?'
         return self
 
-    def matchMax(self):
-        self.regexpr += r'+'
+    def multiOptional(self, group=''):
+        group = self.correctInput(group)
+        self.regexpr += ('' if not len(group) else '(' + group + ')') + r'*'
         return self
 
-    def matchNum(self, num):
-        self.regexpr += '{' + num + '}'
+    def matchMax(self, group=''):
+        group = self.correctInput(group)
+        self.regexpr += ('' if not len(group) else '(' + group + ')') + r'+'
         return self
 
-    def matchRange(self, min, max):
-        self.regexpr += '{' + min + ',' + max + '}'
+    def matchNum(self, num, group=''):
+        group = self.correctInput(group)
+        self.regexpr += ('' if not len(group) else '(' + group + ')') + '{' + str(num) + '}'
         return self
 
-    def matchMoreThan(self, min):
-        self.regexpr += '{' + (min - 1) + ',}'
+    def matchRange(self, min, max, group=''):
+        group = self.correctInput(group)
+        self.regexpr += ('' if not len(group) else '(' + group + ')') + '{' + str(min) + ',' + str(max) + '}'
+        return self
+
+    def matchMoreThan(self, min, group=''):
+        group = self.correctInput(group)
+        self.regexpr += ('' if not len(group) else '(' + group + ')') + '{' + str(min - 1) + ',}'
+        return self
+
+    def matchAtLeast(self, min, group=''):
+        group = self.correctInput(group)
+        self.regexpr += ('' if not len(group) else '(' + group + ')') + '{' + str(min) + ',}'
         return self
 
     def whitespace(self):
@@ -263,6 +279,10 @@ class EasyRegex:
         self.regexpr += r'\t'
         return self
 
+    def space(self):
+        self.regexpr += r' '
+        return self
+
     def verticalTab(self):
         self.regexpr += r'\v'
         return self
@@ -342,3 +362,15 @@ class EasyRegex:
         condition_group = self.correctInput(condition_group)
         self.regexpr += fr'(?<!{condition_group})'
         return self
+
+ere = EasyRegex
+
+regex = ere().match('Function(').ifProceededBy(
+            ere().word().match('(').multiOptional(
+                ere().word().match(',').optional(' ')
+            ).matchAtLeast(2, ere().match(')'))
+        ).str()
+
+print(regex)
+
+print(re.search(regex, "Function(ff(xx, yy))"))
