@@ -4,9 +4,9 @@ import requests, re, os, sys, argparse
 
 # For getting the image and the description
 # from urllib import urlretrieve
-from urllib3.request import urlopen
-from urllib3.parse import urlparse, urljoin
-from urllib3.error import URLError
+from urllib.request import urlopen
+from urllib.parse import urlparse, urljoin
+from urllib.error import URLError
 from bs4 import BeautifulSoup as bs
 
 # For the progress bar
@@ -43,8 +43,8 @@ args = parser.parse_args()
 #* Makes it that much faster
 try:
     if not (args.show and os.path.isfile(os.path.join(savePath, getTitle() + '.jpeg'))):
-        soup = bs(urlretrieve(url).read(), 'lxml')
-except urllib.error.URLError:
+        soup = bs(urlopen(url).read(), 'lxml')
+except URLError:
     print('No internet connection')
     exit(0)
 
